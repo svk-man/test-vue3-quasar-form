@@ -60,7 +60,7 @@ module.exports = configure(function (/* ctx */) {
 
       // rebuildCache: true, // rebuilds Vite/linter/etc cache on startup
 
-      // publicPath: '/',
+      publicPath: "/test-vue3-quasar-form/",
       // analyze: true,
       // env: {},
       // rawDefine: {}
