@@ -67,9 +67,9 @@
       ></q-input>
 
       <div>
-        <q-btn label="Submit" type="submit" color="primary"></q-btn>
+        <q-btn label="Отправить" type="submit" color="primary"></q-btn>
         <q-btn
-          label="Reset"
+          label="Сбросить"
           type="reset"
           color="primary"
           flat
@@ -82,6 +82,7 @@
 
 <script setup>
 import { defineComponent, ref } from "vue";
+import { useQuasar } from "Quasar";
 
 defineComponent({
   name: "UserForm",
@@ -97,5 +98,24 @@ function isValidEmail(val) {
   const emailPattern =
     /^(?=[a-zA-Z0-9@._%+-]{6,254}$)[a-zA-Z0-9._%+-]{1,64}@(?:[a-zA-Z0-9-]{1,63}\.){1,8}[a-zA-Z]{2,63}$/;
   return emailPattern.test(val) || "Некорректный email";
+}
+
+const $q = useQuasar();
+
+function onSubmit() {
+  $q.notify({
+    color: "green-4",
+    textColor: "white",
+    icon: "cloud_done",
+    message: "Submitted",
+  });
+}
+
+function onReset() {
+  name.value = "";
+  surname.value = "";
+  phone.value = "";
+  email.value = "";
+  message.value = "";
 }
 </script>
