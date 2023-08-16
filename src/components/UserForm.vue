@@ -101,14 +101,17 @@ function isValidEmail(val) {
 }
 
 const $q = useQuasar();
+const emit = defineEmits(["submitted"]);
 
 function onSubmit() {
   $q.notify({
     color: "green-4",
     textColor: "white",
     icon: "cloud_done",
-    message: "Submitted",
+    message: "Форма отправлена",
   });
+
+  emit("submitted");
 }
 
 function onReset() {

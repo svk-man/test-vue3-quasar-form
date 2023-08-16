@@ -3,10 +3,10 @@
     <q-btn
       label="Открыть модальное окно"
       color="primary"
-      @click="form = true"
+      @click="openDialog"
     ></q-btn>
     <q-dialog v-model="form">
-      <user-form />
+      <user-form v-on:submitted="closeDialog" />
     </q-dialog>
   </q-page>
 </template>
@@ -20,4 +20,12 @@ defineComponent({
 });
 
 const form = ref(false);
+
+function openDialog() {
+  form.value = true;
+}
+
+function closeDialog() {
+  form.value = false;
+}
 </script>
